@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plataforms",
+  "info": {
+    "singularName": "plataform",
+    "pluralName": "plataforms",
+    "displayName": "Plataform",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "launch": {
+      "type": "date"
+    },
+    "company": {
+      "type": "enumeration",
+      "enum": [
+        "Nintendo",
+        "Steam",
+        "Sony",
+        "SNK",
+        "Sega",
+        "Microsoft"
+      ]
+    },
+    "video_games": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::video-game.video-game",
+      "mappedBy": "plataforms"
+    },
+    "supported": {
+      "type": "boolean"
+    }
+  }
+}

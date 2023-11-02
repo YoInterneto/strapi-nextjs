@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_games",
+  "info": {
+    "singularName": "video-game",
+    "pluralName": "video-games",
+    "displayName": "Video Game",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "launch": {
+      "type": "date",
+      "required": true
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "plataforms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::plataform.plataform",
+      "inversedBy": "video_games"
+    }
+  }
+}
